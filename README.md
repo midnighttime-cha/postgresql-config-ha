@@ -110,7 +110,7 @@ sr_check_password = 'replicatorpassword'
 
 ### 3.3	ตั้งค่า Failover Script:
 	-	ตั้งค่า failover script ในไฟล์ pgpool.conf:
- bash```
+ ```bash
  failover_command = '/etc/pgpool-II/failover.sh %d %P %H'
  ```
 
