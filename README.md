@@ -20,13 +20,13 @@ host replication replicator [192.168.x.x => IP เครื่องปลาย
 ### 1.2 Replica Server Configuration:
 - ตั้งค่าให้เครื่อง Replica ทำการ Backup ข้อมูลจากเครื่อง Primary
 ```bash
-pg_basebackup -h primary_host -D /var/lib/postgresql/[POSTGRESQL Version]/main -U replicator -v -P
+pg_basebackup -h [192.168.x.x => Primary Host or IP Primary] -D /var/lib/postgresql/[POSTGRESQL Version]/main -U replicator -v -P
 ```
 
 - สร้างไฟล์ `recovery.conf` ใน data directory:
 ```bash
 standby_mode = 'on'
-primary_conninfo = 'host=primary_host port=5432 user=replicator password=yourpassword'
+primary_conninfo = 'host=[192.168.x.x => Primary Host or IP Primary] port=5432 user=replicator password=yourpassword'
 trigger_file = '/tmp/pg_failover_trigger'
 ```
 
